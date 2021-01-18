@@ -1,1 +1,2 @@
-export { default as config } from './configuration';
+/* eslint-disable import/prefer-default-export */
+export { default as configurations } from './configurations';

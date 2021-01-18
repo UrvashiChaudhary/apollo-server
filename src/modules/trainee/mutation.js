@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import userInstance from '../../service/user';
 
 export default {
