@@ -4,26 +4,26 @@ import configurations from '../config/configurations';
 export default class TraineeAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = `${configurations.serviceUrl}/api/trainee`;
+    this.baseURL = `${configurations.serviceUrl}/api`;
   }
 
   willSendRequest(request) {
-    request.headers.set('Authorization', this.context.token);
+    request.headers.set('authorization', this.context.token);
   }
 
   getTrainees() {
     return this.get('/trainee');
   }
 
-  createTrainee(payload) {
-    return this.post('/trainee', payload);
+  createTrainee(payLoad) {
+    return this.post('/trainee', payLoad);
   }
 
-  updateTrainee() {
-    return this.put('/trainee');
+  updateTrainee(payLoad) {
+    return this.put('/trainee', payLoad);
   }
 
-  deleteTrainee() {
-    return this.delete('/trainee');
+  deleteTrainee(id) {
+    return this.delete(`/trainee?id=${id}`);
   }
 }
