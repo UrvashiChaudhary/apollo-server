@@ -1,5 +1,6 @@
 import Express from 'express';
 import { ApolloServer } from 'apollo-server-express';
+import { createServer } from 'http';
 
 class Server {
   constructor(config) {
@@ -26,13 +27,15 @@ class Server {
       ...schema
     });
     this.Server.applyMiddleware({ app });
+    this.httpServer = createServer(app);
+    this.Server.installSubscriptionHandlers(this.httpServer);
     this.run();
   }
 
   run() {
     const { config: { port } } = this;
-    const { app } = this;
-    app.listen(port, (err) => {
+    // const { app } = this;
+    this.httpServer.listen(port, (err) => {
       if (err) {
         // eslint-disable-next-line no-console
         console.log(err);
