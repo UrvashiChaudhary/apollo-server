@@ -5,3 +5,9 @@ type User {
     role: String
     password: String!
 } 
+
+type Result {
+  message: String
+  status: Int
+  data: String
+}
