@@ -21,3 +21,8 @@ input LoginCredentials{
     email: String!
     password: String!
 } 
+
+input AlltraineesInput{
+    skip: Int
+    limit: Int
+}

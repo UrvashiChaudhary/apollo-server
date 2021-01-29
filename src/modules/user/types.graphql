@@ -11,3 +11,19 @@ type Result {
   status: Int
   data: String
 }
+
+type Alltrainees{
+  message: String
+  totalCount: Int
+  traineeCount: Int
+  record: [Details]
+}
+
+type Details{
+  name: String
+  _id: String
+  role: String
+  email: String
+  password: String
+  createdAt: String
+}
