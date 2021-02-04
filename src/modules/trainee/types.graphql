@@ -1,8 +1,7 @@
 input CreateUserInput {
-    name: String!
-    email: String!
-    password: String!
-    role: String!
+    name: String
+    email: String
+    password: String
 } 
 
 input UpdateUserInput {

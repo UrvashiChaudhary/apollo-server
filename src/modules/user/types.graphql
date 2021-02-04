@@ -26,4 +26,5 @@ type Details{
   email: String
   password: String
   createdAt: String
+  originalId: String
 }

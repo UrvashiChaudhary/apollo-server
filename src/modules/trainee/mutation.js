@@ -21,7 +21,7 @@ export default {
     const updatedTrainee = await traineeAPI.updateTrainee({
       id, name, email, role, password
     });
-    const updatedTraineeData = JSON.stringify(updatedTrainee.data);
+    const updatedTraineeData = JSON.stringify(updatedTrainee.data1);
     // eslint-disable-next-line max-len
     pubsub.publish(constants.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updatedTrainee.data });
     return updatedTraineeData;
