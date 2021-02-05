@@ -7,6 +7,7 @@ export default {
     const { payLoad: { email, name, password } } = args;
     const { dataSources: { traineeAPI } } = context;
     const addedTrainee = await traineeAPI.createTrainee({ email, name, password });
+    console.log('sssssssssssssssssssssss', addedTrainee.data);
     const addedTraineeData = JSON.stringify(addedTrainee.data);
     pubsub.publish(constants.subscriptions.TRAINEE_ADDED, { traineeAdded: addedTrainee.data });
     return addedTraineeData;
@@ -21,17 +22,20 @@ export default {
     const updatedTrainee = await traineeAPI.updateTrainee({
       id, name, email, role, password
     });
-    const updatedTraineeData = JSON.stringify(updatedTrainee.data1);
+    console.log('333333333333333', updatedTrainee);
+    const updatedTraineeData = JSON.stringify(updatedTrainee);
     // eslint-disable-next-line max-len
-    pubsub.publish(constants.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updatedTrainee.data });
+    pubsub.publish(constants.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updatedTrainee });
     return updatedTraineeData;
   },
   deleteTrainee: async (parent, args, context) => {
     const { payLoad: { id } } = args;
     const { dataSources: { traineeAPI } } = context;
     const deletedID = await traineeAPI.deleteTrainee(id);
+    console.log('deletedID------', deletedID);
     const deletedTraineeData = JSON.stringify(deletedID);
-    pubsub.publish(constants.subscriptions.TRAINEE_DELETED, { traineeDeleted: deletedTraineeData });
-    return deletedTraineeData;
+    console.log('deletedTraineeData', deletedTraineeData);
+    pubsub.publish(constants.subscriptions.TRAINEE_DELETED, { traineeDeleted: deletedID });
+    return deletedID;
   }
 };

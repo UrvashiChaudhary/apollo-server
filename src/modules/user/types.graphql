@@ -1,9 +1,10 @@
 type User {
     name: String!
     email: String!
-    id: ID!
+    _id: ID!
     role: String
     password: String!
+    originalId: String
 } 
 
 type Result {
@@ -27,4 +28,30 @@ type Details{
   password: String
   createdAt: String
   originalId: String
+}
+
+type NewRES {
+message: String
+data1: [RES]
+}
+
+type RES {
+    name: String!
+    email: String!
+    _id: ID!
+    role: String
+    password: String!
+    originalId: String
+}
+
+type Delete {
+  status: String
+  message: String
+  data: DATA
+}
+
+type DATA {
+  name: String
+  originalId: String
+  email: String
 }

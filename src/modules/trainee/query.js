@@ -9,6 +9,7 @@ export default {
     const { payLoad: { skip, limit } } = args;
     const { dataSources: { traineeAPI } } = context;
     const response = await traineeAPI.getTrainees({ skip, limit });
+    console.log('999999999999999', response);
     return response;
   },
   getTrainee: (parent, args) => {
