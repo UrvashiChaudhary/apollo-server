@@ -20,6 +20,11 @@ type Alltrainees{
   record: [Details]
 }
 
+type NewRES {
+message: String
+data1: [Details]
+}
+
 type Details{
   name: String
   _id: String
@@ -30,19 +35,7 @@ type Details{
   originalId: String
 }
 
-type NewRES {
-message: String
-data1: [RES]
-}
 
-type RES {
-    name: String!
-    email: String!
-    _id: ID!
-    role: String
-    password: String!
-    originalId: String
-}
 
 type Delete {
   status: String
